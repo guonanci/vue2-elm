@@ -22,7 +22,23 @@ vue2 + vuex + vue-router + webpack + es7，8，9 + fetch + sass + flex + svg
 ```bash
 $ git clone https://github.com/guonanci/vue2-elm.git
 $ cd vue2-elm
-// recommend
+$ # recommend
 $ yarn
-// or
+$ # or
+$ npm install
+$ yarn dev (npm run dev)
 ```
+
+## 另外
+此项目有配套的后台系统，如果想体验后台同时开发，可以参考[这里](https://github.com/guonanci/node-elm)。
+项目启动命令： npm run local（not npm run dev）。
+
+# 说明
+> 如果对你有帮助，右上角 `star`一下的话甚是欣慰，谢谢~~
+> 或者 follow 一下我，互粉~
+> 开发环境 MacOS10.13.5 VSCode1.25.1 Chrome68 Node.js10.7.0 npm6.2.0 yarn1.9.2
+> 如果有问题，欢迎提 Issues，有好的PR 也随时欢迎~~
+> 本人 邮箱 yiminanci@gmail.com 微信 gnc18709268394 QQ 1403326560
+> 推荐一个 [React 图片预览开源项目](https://github.com/guonanci/react-images-viewer), 体验流畅，设计优美的一个开源组件。
+
+#
