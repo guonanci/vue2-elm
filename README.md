@@ -33,7 +33,7 @@ $ yarn dev (npm run dev)
 此项目有配套的后台系统，如果想体验后台同时开发，可以参考[这里](https://github.com/guonanci/node-elm)。
 项目启动命令： npm run local（not npm run dev）。
 
-# 说明
+## 说明
 > 如果对你有帮助，右上角 `star`一下的话甚是欣慰，谢谢~~
 > 或者 follow 一下我，互粉~
 > 开发环境 MacOS10.13.5 VSCode1.25.1 Chrome68 Node.js10.7.0 npm6.2.0 yarn1.9.2
@@ -41,4 +41,14 @@ $ yarn dev (npm run dev)
 > 本人 邮箱 yiminanci@gmail.com 微信 gnc18709268394 QQ 1403326560
 > 推荐一个 [React 图片预览开源项目](https://github.com/guonanci/react-images-viewer), 体验流畅，设计优美的一个开源组件。
 
-#
+## 关于数据接口的说明
+[Node.js 构建的后台系统](https://github.com/guonanci/elm-node)提供的数据接口保持了和官网的一致。同时提供了[后台管理系统](https://github.com/guonanci/elm-manage)。
+
+## 效果演示
+
+[查看 demo](https://guonanci.github.io/vue2-elm)
+
+### 移动端扫描下方二维码
+
+<img
+src="https://github.com/guonanci>
