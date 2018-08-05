@@ -64,14 +64,25 @@ Then run: `npm run local (not npm run dev)`.
 - [x] restaurant food list -- finished
 - [x] shopping cart function -- finished
 - [x] shop evaluation page -- finished
-- [ ] single food detail page -- finished
-- [ ] merchant detail page -- finished
-- [ ] sign in, sign up -- finished
-- [ ] modify password -- finished
-- [ ] person center -- finished
-- [ ] send message, voice verification -- finished
-- [ ] order function -- finished
-- [ ] order list -- finished
-- [ ] order detail -- finished
-- [ ] download app -- fnished
-- [ ]
+- [x] single food detail page -- finished
+- [x] merchant detail page -- finished
+- [x] sign in, sign up -- finished
+- [x] modify password -- finished
+- [x] person center -- finished
+- [x] send message, voice verification -- finished
+- [x] order function -- finished
+- [x] order list -- finished
+- [x] order detail -- finished
+- [x] download app -- fnished
+- [x] add, remove, modify address -- finished
+- [x] account info -- finished
+- [x] service center -- finished
+- [x] red packet -- finished
+- [x] upload avatar -- finished
+- [x] payment -- unfinished
+
+## Summary
+
+1. Because this is not official elm, we have to open proxy in PC, and we cant do more after ordering step.After ordering successfully, we can pay on mobile.
+
+2. Logic with money in webpages will get complex, especially like elm, such a open platform that merchants, food are of varity. Interactions between pages is intricate,
