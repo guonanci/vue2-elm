@@ -1,5 +1,5 @@
-# 前言
-[README in English](README-en.md)
+## 前言
+[English README](README-en.md)
 
 采用最新的 vue2 技术栈，webpack4搭建而成。对于深究 vue，webpack 的前端开发人员具有很大得参考意义。实际工作中，你可能会经常碰到购物车页面（因为涉及到money，所以逻辑严密），登录，注册， 用户个人主页（个人信息资料页）等等，特别常见的页面。
 
@@ -14,14 +14,13 @@
 本项目不涉及任何实质性商业活动，大家如果想要中午点外卖的话请前往正版饿了么！
 
 ## 技术栈
-vue2 + vuex + vue-router + webpack + es7，8，9 + fetch + sass + flex + svg
+vue2 + vuex + vue-router + webpack4 + es8，9 + fetch + sass + flex, grid + svg
 
 ## 项目运行
-### 注意： 由于涉及到 ES7，8，9新特性，node 需要8.0+
+### 注意： 由于涉及到 ES8，9新特性，node 需要8.0+
 
 ```bash
-$ git clone https://github.com/guonanci/vue2-elm.git
-$ cd vue2-elm
+$ git clone https://github.com/guonanci/vue2-elm.git&&cd vue2-elm
 $ # recommend
 $ yarn
 $ # or
@@ -30,15 +29,15 @@ $ yarn dev (npm run dev)
 ```
 
 ## 另外
-此项目有配套的后台系统，如果想体验后台同时开发，可以参考[这里](https://github.com/guonanci/node-elm)。
-项目启动命令： npm run local（not npm run dev）。
+此项目有配套的后台系统，如果想体验后台同时开发，可以参考[这里](https://github.com/guonanci/elm-node)。
+项目启动命令： `npm run local（not npm run dev）`。
 
 ## 说明
 > 如果对你有帮助，右上角 `star`一下的话甚是欣慰，谢谢~~
-> 或者 follow 一下我，互粉~
-> 开发环境 MacOS10.13.5 VSCode1.25.1 Chrome68 Node.js10.7.0 npm6.2.0 yarn1.9.2
+> 或者 [follow 一下我](https://github.com/guonanci)，互粉~
+> 开发环境: MacOS10.13.5, VSCode1.25.1, Chrome68, Node.js10.7.0, npm6.2.0, yarn1.9.2
 > 如果有问题，欢迎提 Issues，有好的PR 也随时欢迎~~
-> 本人 邮箱 yiminanci@gmail.com 微信 gnc18709268394 QQ 1403326560
+> 本人 邮箱:[yiminanci@gmail.com](mailto:yiminanci@gmail.com)， 微信：gnc18709268394， QQ：1403326560
 > 推荐一个 [React 图片预览开源项目](https://github.com/guonanci/react-images-viewer), 体验流畅，设计优美的一个开源组件。
 
 ## 关于数据接口的说明
@@ -56,7 +55,7 @@ $ yarn dev (npm run dev)
 - [x] 定位功能 -- 完成
 - [x] 选择城市 -- 完成
 - [x] 搜索地址 -- 完成
-- [x] 战士所选地址附近商家列表 -- 完成
+- [x] 展示所选地址附近商家列表 -- 完成
 - [x] 搜索美食：餐馆 -- 完成
 - [x] 根据距离，销量，评分，特色菜，配送方式等进行排序和筛选 -- 完成
 - [x] 餐馆食品列表页 -- 完成
