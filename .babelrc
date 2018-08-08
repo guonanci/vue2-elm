@@ -1,0 +1,6 @@
+{
+  "ignore": ["node-modules"],
+  "presets": ["env", "state-2"],
+  "plugins": ["transform-runtime"],
+  "commments": false
+}

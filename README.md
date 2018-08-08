@@ -101,7 +101,6 @@ $ yarn dev (npm run dev)
 
 4. 所以我的目的是构建一个横跨前后端，移动 iOS，Android 的完整生态圈。
 
-## 部分截图
 
 ### 商铺列表页
 <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/msite.png" width="365" height="619"/> <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/msite.gif" width="365" height="619"/>
@@ -141,7 +140,7 @@ $ yarn dev (npm run dev)
 ```
 .
 ├── build                                  // webpack配置文件
-├── config                                 // 项目打包路径
+├── config                                 // 项目打包目录
 ├── elm                                    // 上线项目文件，放在服务器即可正常访问
 ├── screenshots                            // 项目截图
 ├── src                                    // 源码目录
@@ -149,7 +148,7 @@ $ yarn dev (npm run dev)
 | | ├── common                             // 公共组件
 | | |   ├── alert.vue                      // 弹出框组件
 | | |   ├── buyCart.vue                    // 购物车组件
-| | |   ├── countdoen.vue                  // 倒计时组件
+| | |   ├── countdown.vue                  // 倒计时组件
 | | |   └── loading.vue                    // 页面初始化加载数据的动画组件
 | | | ├── mixin.js                         // 组件混合（包括：指令-下拉加载更多, 处理图片地址）
 | | | ├── ratingStar.vue                   // 五颗星评论组件

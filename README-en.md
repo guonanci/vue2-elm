@@ -85,4 +85,187 @@ Then run: `npm run local (not npm run dev)`.
 
 1. Because this is not official elm, we have to open proxy in PC, and we cant do more after ordering step.After ordering successfully, we can pay on mobile.
 
-2. Logic with money in webpages will get complex, especially like elm, such a open platform that merchants, food are of varity. Interactions between pages is intricate,
+2. Logic with money in webpages will get complex, especially like elm, such a open platform that merchants, food are of varity. Interactions between pages is intricate, and I have to step by step without UI designer and API documents help.
+
+3. Because of Vues lightweight, it standsout. And also in big applications, it still performs perfectly, vuex is neccessary when dealing with complex interact logic, so Vue + Vuex holds huge app well.
+
+4. Sign up, sign in, homepage, search function, merchants list, shopping cart, ordering, orders list, personal center and so on - once all of these finished, you can understand vue deeperly, and help you master scaleable project.
+
+5. I doubted for a long time that spent several months to finish such a project is meaningful or not, I just want to practice a while, but more and more I need to code, I believe these time I spent is worth.
+
+6. The App has been finished, including 45 pages.
+
+
+## Final goal
+
+1. Use Node.js to build a [takeaway backend system](https://github.com/guonanci/elm-node).
+
+2. Use react-native to build [an app](https://github.com/guonanci/elm-rn) crossing Android and iOS.
+
+3. If I have enough time, I will push a merchant app.
+
+4. All I want to do is to build a takeaway ecosystem.
+
+
+## Merchants list page
+
+<img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/msite.png" width="365" height="619"/> <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/msite.gif" width="365" height="619"/>
+
+
+### Merchants filter page
+
+<img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/food.png" width="365" height="619"/> <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/food.gif" width="365" height="619"/>
+
+
+
+### restaurant food list and shopping cart
+
+<img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/shop_cart.png" width="365" height="619"/> <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/shop_cart.gif" width="365" height="619"/>
+
+### order certify page
+
+<img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/confirm1.png" width="365" height="619"/> <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/confirmOrder.gif" width="365" height="619"/>
+
+
+### search page
+
+<img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/search.png" width="365" height="619"/> <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/search.gif" width="365" height="619"/>
+
+
+### sign in page
+
+<img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/login1.png" width="365" height="619"/> <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/login.gif" width="365" height="619"/>
+
+
+### personal center
+
+<img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/profile.png" width="365" height="619"/> <img src="https://github.com/guonanci/vue2-elm/blob/master/screenshots/profile.gif" width="365" height="619"/>
+
+## project directories
+
+```
+.
+├── build                                  // webpack config file
+├── config                                 // project build directory
+├── elm                                    // production directory, put on server to visit
+├── screenshots                            // project screenshots
+├── src                                    // src directory
+| ├── components                           // components
+| | ├── common                             // common components
+| | |   ├── alert.vue                      // alert component
+| | |   ├── buyCart.vue                    // shopping cart component
+| | |   ├── countdown.vue                  // countdown component
+| | |   └── loading.vue                    // page initial renderings animation
+| | | ├── mixin.js                         // components mixin(includes directives: pull to load more and handle imgs src)
+| | | ├── ratingStar.vue                   // five ratingStar
+| | | └── shopList.vue                     // msite and shop pages restaurants list common components
+| | ├── footer
+| |     └── footGuide.vue                  // foot common component
+| | └── header
+| |     └── head.vue                       // head common component
+| ├── config                               // basic config
+| |   ├── env.js                           // switch environtment config
+| |   ├── fetch.js                         // fetch data
+| |   ├── mUtils.js                        // usual js util methods
+| |   └── vm.js                            // px transform to vm
+| ├── imgs                                 // common imgs
+| ├── page
+| | ├── balance
+| | ├── index.vue                          // balance page
+| | └── children
+| | |   ├── detail.vue                     // balance description
+| | ├── benefit
+| | |   ├── index.vue                      // red packet page
+| | |   └── children
+| | |   |   ├── commend.vue                // recommend prize
+| | |   |   ├── coupon.vue                 // voucher description
+| | |   |   ├── exchange.vue               // exchange red packet
+| | |   |   ├── redPacketDesc.vue          // red packet description
+| | |   |   └── redPacketHistory.vue       // red packet history
+| | ├── city
+| | |   └── index.vue                      // current city page
+| | ├── confirmOrder
+| | |   ├── children
+| | |   |   ├── children
+| | |   |   |   ├── addAddress.vue         // add address page
+| | |   |   |   └── children
+| | |   |   |       └── searchAddress.vue  // search address page
+| | |   |   |   ├── chooseAddress.vue      // choose address page
+| | |   |   |   ├── invoice.vue            // choose invoice page
+| | |   |   |   ├── payment.vue            // payment page
+| | |   |   |   ├── remark.vue             // order remark page
+| | |   |   |   └── userValidation.vue     // user verification page
+| | |   |   └── index.vue                  // order certify page
+| | ├── download
+| | |   └── index.vue                      // download app
+| | ├── find
+| | |   └── index.vue                      // find page
+| | ├── food
+| | |   └── index.vue                      // foods filter page
+| | ├── forgetPwd
+| | |   └── index.vue                      // forget password page
+| | ├── home
+| | |   └── index.vue                      // homepage
+| | ├── login
+| | |   └── index.vue                      // sign in, sign up page
+| | ├── msite
+| | |   └── index.vue                      // merchants list page
+| | ├── order
+| | |   ├── children
+| | |   |   └── detail.vue                 // order detail page
+| | |   └── index.vue                      // order list page
+| | ├── profile
+| | |   ├── children
+| | |   |   ├── children
+| | |   |   |   ├── address.vue            // address
+| | |   |   |   └── children
+| | |   |   |   |   ├── add.vue            // add address
+| | |   |   |   |   └── children
+| | |   |   |   |   |   └── addDetail.vue  // search address
+| | |   |   ├── info.vue                   // account information
+| | |   |   └── resetUsername.vue          // reset username
+| | |   └── profile.vue                    // personal center
+| | ├── search
+| | |   └── index.vue                      // search page
+| | ├── service
+| | |   ├── children
+| | |   |   └── questionDetail.vue         // problem detail
+| | |   └── index.vue                      // service center
+| | ├── shop
+| | |   ├── children
+| | |   |   ├── children
+| | |   |   |   └── safe.vue               // merchant authenticate information page
+| | |   |   ├── allShops.vue               // merchants information page
+| | |   |   └── singleShop.vue             // single merchant information page
+| | |   └── index.vue                      // merchants filter page
+| | └── vipcard
+| | |   ├── children
+| | |   |   ├── purchaseRecord.vue         // purchase record
+| | |   |   ├── useCart.vue                // use card no to purchase
+| | |   |   ├── vipDesc.vue                // vip description
+| | |   └── index.vue                      // vip card handling page
+| ├── plugins                              // plugins imported
+| ├── router
+| |   └── index.js                         // router config
+| ├── service                              // fetch unified config
+| |   ├── getData.js                       // unified file to fetch data, and unified management of interfaces
+| |   └── tempdata                         // temperary data of development statement
+| |   ├── store                            // vuex store management
+| |   |   ├── index.js                     // import vuex to create, including all modules
+| |   |   └── global.js                    // global module
+| |   └── style
+| |   |   ├── common.scss                  // common style file
+| |   |   ├── mixin.scss                   // style config file
+| |   |   └── swiper.min.css
+| ├── App.vue                             // page entry
+| ├── main.js                             // app entry, loading various common components
+| ├── favicon.ico                         // app logo
+| ├── index.html                          //  HTML entry file
+.
+
+56 directories，203 files
+```
+
+## License
+[GPL](https://github.com/guonanci/vue2-elm/blob/master/COPYING)
+
