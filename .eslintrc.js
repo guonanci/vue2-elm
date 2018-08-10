@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  parse: 'babel-eslint',
+  parser: 'babel-eslint',
   parserOptions: {
     sourceType: 'module',
   },
