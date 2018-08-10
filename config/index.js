@@ -1,6 +1,6 @@
 var path = require('path')
 
-modules.exports = {
+module.exports = {
   build: {
     env: {
       NODE_ENV: '"production"',
