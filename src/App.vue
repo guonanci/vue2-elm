@@ -21,6 +21,10 @@
 
 <style scoped>
   @import 'style/common';
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scolling: touch;
+  }
   .router-fade-enter-active, .router-fade-leave-active {
     transition: opacity .3s;
   }
