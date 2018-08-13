@@ -37,12 +37,12 @@ module.exports = {
       '/payapi',
       '/img',
     ],
-    proxyorigin: 'http://cangdu.org:8001',
+    proxypath: 'http://cangdu.org:8001',
     // CSS Sourcemaps off by default becase relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
     // In our experiences, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
-  }
+  },
 }
