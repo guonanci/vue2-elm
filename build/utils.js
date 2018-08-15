@@ -11,4 +11,10 @@ exports.cssLoaders = function (options) {
   options = options || {}
 
   // generate loader string to be used with mini css extract plugin
+  function generateLoaders (loaders) {
+    var sourceLoader = loaders.map(function (loader) {
+      var extraParamChar
+
+    })
+  }
 }
