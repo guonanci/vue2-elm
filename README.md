@@ -255,7 +255,8 @@ $ yarn dev (npm run dev)
 | ├── main.js                             // 程序入口文件，加载各种公共组件
 | ├── favicon.ico                         // app logo
 | ├── index.html                          // 入口 HTML 文件
-.
+
+
 
 56 个目录，203个文件
 ```
