@@ -14,7 +14,16 @@ exports.cssLoaders = function (options) {
   function generateLoaders (loaders) {
     var sourceLoader = loaders.map(function (loader) {
       var extraParamChar
+      if (/\?/.test(loader)) {
+        loader = loader.replace(/\?/, '-loader?')
+        extraParamChar = '&'
+      } else {
+        loader = loader + '-loader'
+        extraParamChar = '?'
+      }
+      return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
+    }).join('!')
 
-    })
+    // (which is the case during production build)
   }
 }
