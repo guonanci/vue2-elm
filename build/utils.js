@@ -25,5 +25,36 @@ exports.cssLoaders = function (options) {
     }).join('!')
 
     // (which is the case during production build)
+    if (options.extract) {
+      return MiniCSSExtractPlugin.extract('vue-style-loader', sourceLoader)
+    } else {
+      return ['vuex-style-loader', sourceLoader].join('!')
+    }
   }
+
+  // http://vuejs.github.io/vue-laoder/en/configuration/extract-css.html
+  return {
+    css: generateLoaders(['css']),
+    postcss: generateLoaders(['css']),
+    less: generateLoaders(['css', 'less']),
+    sass: generateLoaders(['css', 'sass?indentedSyntax']),
+    scss: generateLoaders(['css', 'sass']),
+    stylus: generateLoaders(['css', 'stylus']),
+    styl: generateLoaders(['css', 'stylus']),
+  }
+}
+
+
+// Generate laoders for standalone style files (outside of .vue)
+exports.styleLoaders = function (options) {
+  var output = []
+  var loaders = exports.cssLoaders(options)
+  for (var extension in loaders) {
+    var loader = loaders[extension]
+    output.push({
+      test: new RegExp('\\.' + extension + '$'),
+      loader: loader,
+    })
+  }
+  return output
 }
