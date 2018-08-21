@@ -7,3 +7,14 @@ var env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS Sourcemaps for
 // the various precessor loaders added to vue-loader at the end of this file
 var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
+var cssSourceMapProd = (env === 'production' && config.buiild.productionSourceMap)
+var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+
+module.exports = {
+  entry: {
+    app: './src/main.js',
+  },
+  output: {
+    path: config.build.assetsRoot,
+  },
+}
