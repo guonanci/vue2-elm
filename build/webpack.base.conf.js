@@ -42,6 +42,13 @@ module.exports = {
     }, {
       test: /\.json/,
       loader: 'json',
+    }, {
+      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+      loader: 'url',
+      query: {
+        limit: 1000,
+        name: utils.assetsPath('img/[name].[ext]'),
+      },
     }],
   },
 }
