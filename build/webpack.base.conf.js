@@ -49,6 +49,8 @@ module.exports = {
         limit: 1000,
         name: utils.assetsPath('img/[name].[ext]'),
       },
+    }, {
+      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
     }],
   },
 }
