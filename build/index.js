@@ -1,5 +1,5 @@
 require('shelljs/global')
-env.NODE_ENV = 'production'
+// env.NODE_ENV = 'production'
 
 var path = require('path')
 var config = require('../config')
@@ -12,7 +12,7 @@ setTimeout(() => {
   spinner.color = 'yellow'
 }, 1000)
 
-var assetsPath = path.join(config.build.assetsRoot, config.build.assetsSubDirectory)
+var assetsPath = path.join(config.production.assetsRoot, config.production.assetsSubDirectory)
 rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
 cp('-R', 'static/*', assetsPath)

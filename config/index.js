@@ -1,10 +1,8 @@
 var path = require('path')
 
 module.exports = {
-  build: {
-    env: {
-      NODE_ENV: '"production"',
-    },
+  prod: {
+    mode: '"production"',
     index: path.resolve(__dirname, '../elm/index.html'),
     assetsRoot: path.resolve(__dirname, '../elm'),
     assetsSubDirectory: 'static',
