@@ -2,9 +2,13 @@ var path = require('path')
 var config = require('../config')
 var MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 
-exports.assetsPlugin = function (_path) {
-  var assetsSubDirectory = process.env.NODE_NEV === 'production' ? config.build.assetsSubDirectory : config.dev.assetsSubDirectory
-  return path.posix.join(assetsSubDirectory, _path)
+exports.parentDir = function (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
+exports.assetPath = function (pathArg) {
+  var assetSubDir = process.env.NODE_NEV === 'production' ? config.prod.assetSubDir : config.dev.assetSubDir
+  return path.posix.join(assetSubDir, pathArg)
 }
 
 exports.cssLoaders = function (options) {
@@ -43,7 +47,6 @@ exports.cssLoaders = function (options) {
     styl: generateLoaders(['css', 'stylus']),
   }
 }
-
 
 // Generate laoders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {

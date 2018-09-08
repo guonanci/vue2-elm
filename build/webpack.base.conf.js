@@ -1,7 +1,5 @@
-var path = require('path')
 var config = require('../config')
 var utils = require('../utils')
-var projectRoot = path.resolve(__dirname, '../')
 
 var env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS Sourcemaps for
@@ -10,7 +8,7 @@ var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
 var cssSourceMapProd = (env === 'production' && config.prod.productionSourceMap)
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
-module.exports = {
+const webpackConfig = {
   entry: {
     app: './src/main.js',
   },
@@ -19,46 +17,70 @@ module.exports = {
   },
   resolve: {
     symlinks: false,
-    modules:
-    extensions: ['', '.js', '.vue', '.less', '.css', '.scss'],
-    fallback: [path.join(__dirname, '../node_modules')],
+    extensions: ['.js', '.vue', '.scss', ''],
     alias: {
-      'vue$': 'vue/dist/vue.common.js',
-      'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components'),
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': utils.parentDir('src'),
+      'asset': utils.parentDir('asset'),
+      'component': utils.parentDir('component'),
+      'router': utils.parentDir('src/router'),
+      'store': utils.parentDir('src/store'),
+      'style': utils.parentDir('src/style'),
+      'common': utils.parentDir('src/common'),
+      'service$': utils.parentDir('src/common/service'),
+      'util$': utils.parentDir('src/common/util'),
+      'enum$': utils.parentDir('src/common/enum'),
+      'page': utils.parentDir('src/page'),
     },
   },
-  resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')],
-  },
   module: {
-    loaders: [{
-      test: /\.vue$/,
-      loader: 'vue',
-    }, {
-      test: /\.js$/,
-      loader: 'babel',
-      include: projectRoot,
-      exclude: /node_modules/,
-    }, {
-      test: /\.json/,
-      loader: 'json',
-    }, {
-      test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-      loader: 'url',
-      query: {
-        limit: 1000,
-        name: utils.assetsPath('img/[name].[ext]'),
+    loaders: [
+      ...(config.dev.useEslint ? [{
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        include: [utils.parentDir('src'), utils.parentDir('test')],
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+          emitWarning: !config.dev.showEslintErrorsInOverlay,
+        }
+      }] : []),
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        include: [utils.parentDir('src')],
       },
-    }, {
-      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-      loader: 'url',
-      query: {
-        limit: 10000,
-        name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        include: [utils.parentDir('src'), utils.parentDir('test')],
+        exclude: [utils.parentDir('node_modules')],
       },
-    }],
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        include: [utils.parentDir('src')],
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetPath('img/[name].[hash:6].[ext]'),
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 1000,
+          name: utils.assetsPath('media/[name].[hash:6].[ext]'),
+        },
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000,
+          name: utils.assetsPath('fonts/[name].[hash:6].[ext]'),
+        },
+      }
+    ],
   },
   vue: {
     loaders: utils.cssLoaders({
@@ -71,3 +93,5 @@ module.exports = {
     ],
   },
 }
+
+module.exports = webpackConfig
