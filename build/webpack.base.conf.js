@@ -1,19 +1,19 @@
-var config = require('../config')
-var utils = require('../utils')
+const config = require('../config')
+const utils = require('../utils')
 
-var env = process.env.NODE_ENV
+const env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS Sourcemaps for
 // the various precessor loaders added to vue-loader at the end of this file
-var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
-var cssSourceMapProd = (env === 'production' && config.prod.productionSourceMap)
-var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+const cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
+const cssSourceMapProd = (env === 'production' && config.prod.sourceMap)
+const useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 const webpackConfig = {
   entry: {
     app: './src/main.js',
   },
   output: {
-    path: config.prod.assetsRoot,
+    path: config.prod.assetRoot,
   },
   resolve: {
     symlinks: false,
@@ -34,10 +34,10 @@ const webpackConfig = {
     },
   },
   module: {
-    loaders: [
+    rules: [
       ...(config.dev.useEslint ? [{
         test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
+        use: 'eslint-loader',
         include: [utils.parentDir('src'), utils.parentDir('test')],
         options: {
           formatter: require('eslint-friendly-formatter'),
@@ -46,19 +46,19 @@ const webpackConfig = {
       }] : []),
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        use: 'vue-loader',
         include: [utils.parentDir('src')],
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
         include: [utils.parentDir('src'), utils.parentDir('test')],
         exclude: [utils.parentDir('node_modules')],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         include: [utils.parentDir('src')],
-        loader: 'url-loader',
+        use: 'url-loader',
         options: {
           limit: 10000,
           name: utils.assetPath('img/[name].[hash:6].[ext]'),
@@ -66,7 +66,7 @@ const webpackConfig = {
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'url-loader',
+        use: 'url-loader',
         options: {
           limit: 1000,
           name: utils.assetsPath('media/[name].[hash:6].[ext]'),
@@ -74,7 +74,7 @@ const webpackConfig = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
+        use: 'url-loader',
         query: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:6].[ext]'),
