@@ -1,3 +1,5 @@
+const path = require('path')
+const config = require('../config')
 const utils = require('./utils')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
@@ -12,6 +14,16 @@ const webpackConfig = merge(baseWebpackConfig, {
     rules: utils.styleLoaders({
       sourceMap: config.prod.sourceMap,
       extract: true,
+    })
+  },
+  output: {
+    path: config.prod.assetRoot,
+    filename: utils.assetPath('js/[nname].js'),
+    chunkFilename: utils.assetPath('js/[name].[chunkHash].min.js'),
+  },
+  vue: {
+    loaders: utils.cssLoaders({
+      sourceMap: config.prod.sourceMap
     })
   }
 })
