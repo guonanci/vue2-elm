@@ -12,7 +12,7 @@ setTimeout(() => {
   spinner.color = 'yellow'
 }, 1000)
 
-var assetsPath = path.join(config.production.assetsRoot, config.production.assetsSubDirectory)
+var assetsPath = path.join(config.builduction.assetsRoot, config.builduction.assetsSubDirectory)
 rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
 cp('-R', 'static/*', assetsPath)

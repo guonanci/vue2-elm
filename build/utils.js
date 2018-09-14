@@ -6,9 +6,9 @@ exports.parentDir = function (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-exports.assetPath = function (pathArg) {
-  var assetSubDir = process.env.NODE_NEV === 'production' ? config.prod.assetSubDir : config.dev.assetSubDir
-  return path.posix.join(assetSubDir, pathArg)
+exports.assetsPath = function (pathArg) {
+  var assetsSubDir = process.env.NODE_NEV === 'production' ? config.build.assetsSubDir : config.dev.assetsSubDir
+  return path.posix.join(assetsSubDir, pathArg)
 }
 
 exports.cssLoaders = function (options) {

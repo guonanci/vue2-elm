@@ -1,12 +1,12 @@
 var path = require('path')
 
 module.exports = {
-  prod: {
+  build: {
     mode: '"production"',
     index: path.resolve(__dirname, '../elm/index.html'),
-    assetRoot: path.resolve(__dirname, '../elm'),
-    assetSubDir: 'static',
-    assetPublicPath: '/elm/',
+    assetsRoot: path.resolve(__dirname, '../elm'),
+    assetsSubDir: 'static',
+    assetsPublicPath: '/elm/',
     sourceMap: true,
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
@@ -19,8 +19,8 @@ module.exports = {
     useEslint: true,
     showEslintErrorsInOverlay: false,
     port: 8000,
-    assetSubDir: 'static',
-    assetPublicPath: '/',
+    assetsSubDir: 'static',
+    assetsPublicPath: '/',
     context: [ // proxy path
       '/shopping',
       '/ugc',

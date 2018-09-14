@@ -5,7 +5,7 @@ const env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS Sourcemaps for
 // the various precessor loaders added to vue-loader at the end of this file
 const cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
-const cssSourceMapProd = (env === 'production' && config.prod.sourceMap)
+const cssSourceMapProd = (env === 'production' && config.build.sourceMap)
 const useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 const webpackConfig = {
@@ -13,7 +13,7 @@ const webpackConfig = {
     app: './src/main.js',
   },
   output: {
-    path: config.prod.assetRoot,
+    path: config.build.assetsRoot,
   },
   resolve: {
     symlinks: false,
@@ -21,16 +21,16 @@ const webpackConfig = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': utils.parentDir('src'),
-      'asset': utils.parentDir('asset'),
-      'component': utils.parentDir('component'),
+      'assets': utils.parentDir('assets'),
+      'components': utils.parentDir('components'),
       'router': utils.parentDir('src/router'),
       'store': utils.parentDir('src/store'),
-      'style': utils.parentDir('src/style'),
+      'styles': utils.parentDir('src/styles'),
       'common': utils.parentDir('src/common'),
       'service$': utils.parentDir('src/common/service'),
       'util$': utils.parentDir('src/common/util'),
       'enum$': utils.parentDir('src/common/enum'),
-      'page': utils.parentDir('src/page'),
+      'pages': utils.parentDir('src/pages'),
     },
   },
   module: {
@@ -61,7 +61,7 @@ const webpackConfig = {
         use: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetPath('img/[name].[hash:6].[ext]'),
+          name: utils.assetsPath('img/[name].[hash:6].[ext]'),
         }
       },
       {

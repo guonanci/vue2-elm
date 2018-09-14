@@ -36,10 +36,16 @@ compiler.plugin('compilation', function (compilation) {
 })
 
 var context = config.dev.context
+var proxypath
 switch (process.env.NODE_ENV) {
-  case 'local': var proxypath = 'http://localhost:8001'; break
-  case 'online': var proxypath = 'http://elm.candu.org'; break
-  default: var proxypath = config.dev.proxypath
+  case 'local':
+    proxypath = 'http://localhost:8001'
+    break
+  case 'online':
+    proxypath = 'http://elm.candu.org'
+    break
+  default:
+    proxypath = config.dev.proxypath
 }
 var options = {
   target: proxypath,

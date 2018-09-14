@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import routes from 'router'
 import store from 'store'
 import { routerMode } from 'config/env'
-import 'config/vm'
+import 'config/rem'
 import FastClick from 'fastlick'
 
 if ('addEventListener' in document) {
