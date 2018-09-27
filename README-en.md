@@ -171,11 +171,11 @@ Then run: `npm run local (not npm run dev)`.
 | ├── imgs                                 // common imgs
 | ├── page
 | | ├── balance
-| | ├── index.vue                          // balance page
+| | ├── balance.vue                          // balance page
 | | └── children
 | | |   ├── detail.vue                     // balance description
 | | ├── benefit
-| | |   ├── index.vue                      // red packet page
+| | |   ├── benefit.vue                      // red packet page
 | | |   └── children
 | | |   |   ├── commend.vue                // recommend prize
 | | |   |   ├── coupon.vue                 // voucher description
@@ -183,7 +183,7 @@ Then run: `npm run local (not npm run dev)`.
 | | |   |   ├── redPacketDesc.vue          // red packet description
 | | |   |   └── redPacketHistory.vue       // red packet history
 | | ├── city
-| | |   └── index.vue                      // current city page
+| | |   └── city.vue                      // current city page
 | | ├── confirmOrder
 | | |   ├── children
 | | |   |   ├── children
@@ -195,25 +195,25 @@ Then run: `npm run local (not npm run dev)`.
 | | |   |   |   ├── payment.vue            // payment page
 | | |   |   |   ├── remark.vue             // order remark page
 | | |   |   |   └── userValidation.vue     // user verification page
-| | |   |   └── index.vue                  // order certify page
+| | |   |   └── confirmOrder.vue                  // order certify page
 | | ├── download
-| | |   └── index.vue                      // download app
+| | |   └── download.vue                      // download app
 | | ├── find
-| | |   └── index.vue                      // find page
+| | |   └── find.vue                      // find page
 | | ├── food
-| | |   └── index.vue                      // foods filter page
+| | |   └── food.vue                      // foods filter page
 | | ├── forgetPwd
-| | |   └── index.vue                      // forget password page
+| | |   └── forgetPwd.vue                      // forget password page
 | | ├── home
-| | |   └── index.vue                      // homepage
+| | |   └── home.vue                      // homepage
 | | ├── login
-| | |   └── index.vue                      // sign in, sign up page
+| | |   └── login.vue                      // sign in, sign up page
 | | ├── msite
-| | |   └── index.vue                      // merchants list page
+| | |   └── msite.vue                      // merchants list page
 | | ├── order
 | | |   ├── children
 | | |   |   └── detail.vue                 // order detail page
-| | |   └── index.vue                      // order list page
+| | |   └── order.vue                      // order list page
 | | ├── profile
 | | |   ├── children
 | | |   |   ├── children
@@ -226,32 +226,32 @@ Then run: `npm run local (not npm run dev)`.
 | | |   |   └── resetUsername.vue          // reset username
 | | |   └── profile.vue                    // personal center
 | | ├── search
-| | |   └── index.vue                      // search page
+| | |   └── search.vue                      // search page
 | | ├── service
 | | |   ├── children
 | | |   |   └── questionDetail.vue         // problem detail
-| | |   └── index.vue                      // service center
+| | |   └── service.vue                      // service center
 | | ├── shop
 | | |   ├── children
 | | |   |   ├── children
 | | |   |   |   └── safe.vue               // merchant authenticate information page
 | | |   |   ├── allShops.vue               // merchants information page
 | | |   |   └── singleShop.vue             // single merchant information page
-| | |   └── index.vue                      // merchants filter page
+| | |   └── shop.vue                      // merchants filter page
 | | └── vipcard
 | | |   ├── children
 | | |   |   ├── purchaseRecord.vue         // purchase record
 | | |   |   ├── useCart.vue                // use card no to purchase
 | | |   |   ├── vipDesc.vue                // vip description
-| | |   └── index.vue                      // vip card handling page
+| | |   └── vipcard.vue                      // vip card handling page
 | ├── plugins                              // plugins imported
 | ├── router
-| |   └── index.js                         // router config
+| |   └── router.js                         // router config
 | ├── service                              // fetch unified config
 | |   ├── getData.js                       // unified file to fetch data, and unified management of interfaces
 | |   └── tempdata                         // temperary data of development statement
 | |   ├── store                            // vuex store management
-| |   |   ├── index.js                     // import vuex to create, including all modules
+| |   |   ├── store.js                     // import vuex to create, including all modules
 | |   |   └── global.js                    // global module
 | |   └── style
 | |   |   ├── common.scss                  // common style file

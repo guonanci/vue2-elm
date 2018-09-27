@@ -1,0 +1,58 @@
+$blue: #3190e8;
+$bc: #e4e4e4;
+$fc: #fff;
+$c333: #333;
+$c555: #555;
+$c666: #666;
+$f5: #f5f5f5;
+
+// background image url and size
+@mixin bis($url) {
+  background-image: url($url);
+  background-repeat: : no-repeat;
+  background-size: 100% 100%;
+}
+@mixin borderRadius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+// fullscreen positioning
+@mixin allcover {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+// center positioning
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// vertically center position
+@mixin ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%)
+}
+// width and height
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+// font-size, line-height, font-family
+@mixin font($size, $line-height, $family: 'Microsoft Yahei') {
+  font: #{$size}/#{$line-height} $family;
+}
+// font-size, color
+@mixin sc($size, $color) {
+  font-size: $size;
+  color: $color;
+}
+// flex layout and children align way
+@mixin fj($type: space-between) {
+  display: flex;
+  justify-content: $type;
+}

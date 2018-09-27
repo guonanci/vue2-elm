@@ -164,13 +164,13 @@ $ yarn dev (npm run dev)
 | |   ├── mUtils.js                        // 常用的 js 方法
 | |   └── vm.js                            // px 转换成 vm
 | ├── imgs                                 // 公共图片
-| ├── page
+| ├── pages
 | | ├── balance
-| | ├── index.vue                          // 余额页
+| | ├── balance.vue                          // 余额页
 | | └── children
 | | |   ├── detail.vue                     // 余额说明
 | | ├── benefit
-| | |   ├── index.vue                      // 红包页
+| | |   ├── benefit.vue                      // 红包页
 | | |   └── children
 | | |   |   ├── commend.vue                // 推荐有奖
 | | |   |   ├── coupon.vue                 // 代金券说明
@@ -178,7 +178,7 @@ $ yarn dev (npm run dev)
 | | |   |   ├── redPacketDesc.vue          // 红包说明
 | | |   |   └── redPacketHistory.vue       // 红包历史
 | | ├── city
-| | |   └── index.vue                      // 当前城市页
+| | |   └── city.vue                      // 当前城市页
 | | ├── confirmOrder
 | | |   ├── children
 | | |   |   ├── children
@@ -190,25 +190,25 @@ $ yarn dev (npm run dev)
 | | |   |   |   ├── payment.vue            // 付款页
 | | |   |   |   ├── remark.vue             // 订单备注页
 | | |   |   |   └── userValidation.vue     // 用户验证页
-| | |   |   └── index.vue                  // 确认订单页
+| | |   |   └── confirmOrder.vue                  // 确认订单页
 | | ├── download
-| | |   └── index.vue                      // 下载 app
+| | |   └── download.vue                      // 下载 app
 | | ├── find
-| | |   └── index.vue                      // 发现页
+| | |   └── find.vue                      // 发现页
 | | ├── food
-| | |   └── index.vue                      // 食品筛选排序页
+| | |   └── food.vue                      // 食品筛选排序页
 | | ├── forgetPwd
-| | |   └── index.vue                      // 忘记密码页
+| | |   └── forgetPwd.vue                      // 忘记密码页
 | | ├── home
-| | |   └── index.vue                      // 首页
+| | |   └── home.vue                      // 首页
 | | ├── login
-| | |   └── index.vue                      // 登录注册页
+| | |   └── login.vue                      // 登录注册页
 | | ├── msite
-| | |   └── index.vue                      // 商铺列表页
+| | |   └── msite.vue                      // 商铺列表页
 | | ├── order
 | | |   ├── children
 | | |   |   └── detail.vue                 // 订单详情页
-| | |   └── index.vue                      // 订单列表页
+| | |   └── order.vue                      // 订单列表页
 | | ├── profile
 | | |   ├── children
 | | |   |   ├── children
@@ -221,7 +221,7 @@ $ yarn dev (npm run dev)
 | | |   |   └── resetUsername.vue          // 重置用户名
 | | |   └── profile.vue                    // 个人中心
 | | ├── search
-| | |   └── index.vue                      // 搜索页
+| | |   └── search.vue                      // 搜索页
 | | ├── service
 | | |   ├── children
 | | |   |   └── questionDetail.vue         // 问题详情
@@ -232,21 +232,21 @@ $ yarn dev (npm run dev)
 | | |   |   |   └── safe.vue               // 商铺认证信息页
 | | |   |   ├── allShops.vue               // 商铺信息页
 | | |   |   └── singleShop.vue             // 单个商铺信息页
-| | |   └── index.vue                      // 商铺筛选页
+| | |   └── shop.vue                      // 商铺筛选页
 | | └── vipcard
 | | |   ├── children
 | | |   |   ├── purchaseRecord.vue         // 购买记录
 | | |   |   ├── useCart.vue                // 使用卡号购买
 | | |   |   ├── vipDesc.vue                // 会员说明
-| | |   └── index.vue                      // 会员卡办理页
+| | |   └── vipcard.vue                      // 会员卡办理页
 | ├── plugins                              // 引用的插件
 | ├── router
-| |   └── index.js                         // 路由配置
+| |   └── router.js                         // 路由配置
 | ├── service                              // 数据交互统一调配
 | |   ├── getData.js                       // 获取数据的统一调配文件，对接口进行统一管理
 | |   └── tempdata                         // 开发状态的临时数据
 | |   ├── store                            // vuex 的状态管理
-| |   |   ├── index.js                     // 引用 vuex，创建 Store，包含所有 modules
+| |   |   ├── store.js                     // 引用 vuex，创建 Store，包含所有 modules
 | |   |   └── global.js                    // 全局模块
 | |   └── style
 | |   |   ├── common.scss                  // 公共样式文件

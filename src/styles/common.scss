@@ -1,0 +1,59 @@
+body, div, span, header, footer, nav, section, aside, article, ul, dt, dd, li, a, p, h1, h2, h3, h4, h5, h6, i, b,
+textarea, button, input, select, figure, figcaption {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-style: normal;
+  text-decoration: none;
+  border: none;
+  color: $c333;
+  font-weight: normal;
+  font-family: 'Microsoft Yahei';
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  &:hover {
+    outline: none;
+  }
+}
+// scrollbar width, height, and background; height and width horizontal, vertical scrollbar size
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: $f5;
+}
+// define scroobar 轨道 内阴影+圆角
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  background-color: $f5;
+}
+// 定义滑块 内阴影+圆角
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .3);
+  border-color: $c555;
+}
+input[type='button'], input[type='submit'], input[type='search'], input[type='reset'] {
+  -webkit-appearance: none;
+}
+textarea {
+  -webkit-appearance: none;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: $f5;
+}
+.clear:after {
+  content: '',
+  display: block;
+  clear: both;
+}
+.clear {
+  zoom: 1;
+}
+.back-img {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

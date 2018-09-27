@@ -20,6 +20,7 @@
 </script>
 
 <style scoped>
+  @import 'style/mixin';
   @import 'style/common';
   html {
     scroll-behavior: smooth;
