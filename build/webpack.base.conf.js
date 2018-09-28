@@ -1,4 +1,4 @@
-const config = require('../config')
+const config = require('../config/config')
 const utils = require('../utils')
 
 const env = process.env.NODE_ENV
@@ -24,11 +24,11 @@ const webpackConfig = {
       'assets': utils.parentDir('assets'),
       'components': utils.parentDir('components'),
       'router': utils.parentDir('src/router'),
-      'store': utils.parentDir('src/store'),
+      'store': utils.parentDir('src/store/store'),
       'styles': utils.parentDir('src/styles'),
       'common': utils.parentDir('src/common'),
       'service$': utils.parentDir('src/common/service'),
-      'util$': utils.parentDir('src/common/util'),
+      'utils$': utils.parentDir('src/common/utils'),
       'enum$': utils.parentDir('src/common/enum'),
       'pages': utils.parentDir('src/pages'),
     },

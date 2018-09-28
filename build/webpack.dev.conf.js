@@ -1,4 +1,4 @@
-const config = require('../config')
+const config = require('../config/config')
 const webpack = require('webpack')
 const merge = require('wepback-merge')
 const utils = require('./utils')

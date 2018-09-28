@@ -11,6 +11,11 @@ export default [{
       path: '',
       redirect: '/home'
     },
+    // home, cities-list-age
+    {
+      path: '/home',
+      component: home
+    }
 
   ]
 }]
