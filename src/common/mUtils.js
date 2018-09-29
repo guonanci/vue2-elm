@@ -171,11 +171,47 @@ export const animate = (element, target, duration = 400, mode = 'ease-out', call
 
   // delete suffix unit
   Object.keys(target).forEach(attr => {
-    if (unit[attr] === 'rem') { // how about %, em, vw, vh, vmin, vmax, these units
+    if (unit[attr] === 'rem') { // how about %, em, vw, vh, vmin, vmax, these units??
       target[attr] = Math.ceil(parseInt(target[attr]) * rootSize)
     } else {
       target[attr] = parseInt(target[attr])
     }
   })
+
+  let flag = true // image all sports arrive at the ending
+  const remberSpeed = {} // record last speed value, needed under `ease-in` mode
+  element.timer = setInterval(() => {
+    Object.keys(target).forEach(attr => {
+      let iSpeed = 0 // step length
+      let status = false // whether needs going sports
+      let iCurrent = attrStyle(attr) || 0 // current element attribute value
+      let speedBase = 0 // base value target spot needs to decrease, differents among three sports
+      let intervalTime // steps to divide target value, the bigger its, the smaller iSpeed is, longer the sports time is
+      switch (mode) {
+        case 'ease-out':
+          speedBase = iCurrent
+          intervalTime = duration * 5 / 400
+          break
+        case 'linear':
+          speedBase = initState[attr]
+          intervalTime = duration * 20 / 400
+          break
+        case 'ease-in':
+          let oldspeed = remberSpeed[attr] || 0
+          iSpeed = oldSpeed + (target[attr] - initState[attr]) / duration
+          rememberSpeed[attr] = iSpeed
+          break
+        default:
+          speedBase = iCurrent
+          intervalTime = duration * 5 / 400
+      }
+      if (mode !== 'ease-in') {
+        iSpeed = (target[attr] - speedBase) / intervalTime
+        iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed)
+      }
+      // judge whether in step length error-distance,
+    })
+  })
+
 
 }
