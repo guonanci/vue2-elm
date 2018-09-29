@@ -1,5 +1,5 @@
-import fetch from 'common/config/fetch'
-import { getStore } from 'common/config/mUtils'
+import fetch from './fetch'
+import { getStore } from './mUtils'
 
 // get homepage default address
 export const cityGuess = () => fetch('/v1/cities', {
