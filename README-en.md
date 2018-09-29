@@ -18,7 +18,7 @@ The project does not involve any commercial activity, so if you want to have a t
 vue2 + vuex + vue-router + webpack4 + es8, 9 + fetch + sass + flex, grid + svg
 
 ## Run Project
-### References: we need Node 8+ to support ES8, 9
+### References: we need Node 6+ to support ES6, 7
 
 ```bash
 $ git clone https://github.com/guonanci/vue2-elm.git&&cd vue2-elm
@@ -152,7 +152,7 @@ Then run: `npm run local (not npm run dev)`.
 ├── src                                    // src directory
 | ├── components                           // components
 | | ├── common                             // common components
-| | |   ├── alert.vue                      // alert component
+| | |   ├── alertTip.vue                      // alert component
 | | |   ├── buyCart.vue                    // shopping cart component
 | | |   ├── countdown.vue                  // countdown component
 | | |   └── loading.vue                    // page initial renderings animation

@@ -17,7 +17,7 @@
 vue2 + vuex + vue-router + webpack4 + es8，9 + fetch + sass + flex, grid + svg
 
 ## 项目运行
-### 注意： 由于涉及到 ES8，9新特性，node 需要8.0+
+### 注意： 由于涉及到大量的ES6、ES7新特性，node 需要 6.0 以上版本
 
 ```bash
 $ git clone https://github.com/guonanci/vue2-elm.git&&cd vue2-elm
@@ -147,7 +147,7 @@ $ yarn dev (npm run dev)
 ├── src                                    // 源码目录
 | ├── components                           // 组件
 | | ├── common                             // 公共组件
-| | |   ├── alert.vue                      // 弹出框组件
+| | |   ├── alertTip.vue                      // 弹出框组件
 | | |   ├── buyCart.vue                    // 购物车组件
 | | |   ├── countdown.vue                  // 倒计时组件
 | | |   └── loading.vue                    // 页面初始化加载数据的动画组件
