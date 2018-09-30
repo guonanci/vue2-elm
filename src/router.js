@@ -1,6 +1,7 @@
 import App from '../App'
 
 const home = r => require.ensure([], () => r(require('../page/home/index')), 'home')
+const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 
 export default [{
   path: '/',
@@ -16,6 +17,10 @@ export default [{
       path: '/home',
       component: home
     }
-
+    //登录注册页
+    {
+        path: '/login',
+        component: login
+    },
   ]
 }]

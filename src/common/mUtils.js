@@ -209,9 +209,40 @@ export const animate = (element, target, duration = 400, mode = 'ease-out', call
         iSpeed = (target[attr] - speedBase) / intervalTime
         iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed)
       }
-      // judge whether in step length error-distance,
+      // judge whether in step length error-distance, if in it means arrive at target point
+      switch (mode) {
+        case 'ease-out':
+          status = iCurrent !== target[attr]
+
+          break;
+        case 'linear':
+          status = Math.abs(Math.abs(iCurrent) - Math.abs(target[attr])) > Math.abs(iSpeed)
+          break
+        default:
+          status = iCurrent !== target[attr]
+      }
+
+      if (status) {
+        flag = false
+        // opacity, scrollTop needs special operation
+        if (attr === 'opacity') {
+          element.style.filter = 'alpha(opacity:' + (iCurrent + iSpeed) + ')'
+          element.style.opacity = (iCurrent + iSpeed) / 100
+        } else if (attr === 'scrollTop') {
+          element.scrollTop = iCurrent + iSpeed
+        } else {
+          element.style[attr] = iCurrent + iSpeed + 'px'
+        }
+      } else {
+        flag = true
+      }
+
+      if (flag) {
+        clearInterval(element.timer)
+        if (callback) {
+          callback()
+        }
+      }
     })
-  })
-
-
+  }, 20)
 }
