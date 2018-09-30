@@ -1,9 +1,9 @@
 const config = require('../config/config')
 const webpack = require('webpack')
-const merge = require('wepback-merge')
+const merge = require('webpack-merge')
 const utils = require('./utils')
 const baseWebpackConfig = require('./webpack.base.conf')
-const HtmlWebpackPlugin = reuqire('html-wepback-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {

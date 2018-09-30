@@ -1,5 +1,5 @@
 const config = require('../config/config')
-const utils = require('../utils')
+const utils = require('./utils')
 
 const env = process.env.NODE_ENV
 // check env & config/index.js to decide whether to enable CSS Sourcemaps for
