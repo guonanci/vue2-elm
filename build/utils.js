@@ -1,5 +1,5 @@
 var path = require('path')
-var config = require('../config/config')
+var config = require('../config')
 var MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 
 exports.parentDir = function (dir) {

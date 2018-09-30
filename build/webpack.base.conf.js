@@ -1,12 +1,7 @@
-const config = require('../config/config')
+const config = require('../config')
 const utils = require('./utils')
+const vueLoaderConfig = require('./vue-loader.conf')
 
-const env = process.env.NODE_ENV
-// check env & config/index.js to decide whether to enable CSS Sourcemaps for
-// the various precessor loaders added to vue-loader at the end of this file
-const cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
-const cssSourceMapProd = (env === 'production' && config.build.sourceMap)
-const useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 const webpackConfig = {
   entry: {
@@ -17,7 +12,7 @@ const webpackConfig = {
   },
   resolve: {
     symlinks: false,
-    extensions: ['.js', '.vue', '.scss', ''],
+    extensions: ['.js', '.vue', '.scss'],
     alias: {
       '@': utils.parentDir('src'),
       'vue$': 'vue/dist/vue.esm.js',
@@ -46,6 +41,7 @@ const webpackConfig = {
       {
         test: /\.vue$/,
         use: 'vue-loader',
+        options: vueLoaderConfig,
         include: [utils.parentDir('src')],
       },
       {
@@ -79,16 +75,6 @@ const webpackConfig = {
           name: utils.assetsPath('fonts/[name].[hash:6].[ext]'),
         },
       }
-    ],
-  },
-  vue: {
-    loaders: utils.cssLoaders({
-      sourceMap: useCssSourceMap,
-    }),
-    postcss: [
-      require('autoprefixer')({
-        browsers: ['last 10 versions'],
-      })
     ],
   },
 }
