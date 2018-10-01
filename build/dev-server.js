@@ -42,7 +42,7 @@ switch (process.env.NODE_ENV) {
     proxypath = 'http://localhost:8001'
     break
   case 'online':
-    proxypath = 'http://elm.candu.org'
+    proxypath = 'http://elm.cangdu.org'
     break
   default:
     proxypath = config.dev.proxypath

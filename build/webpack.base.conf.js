@@ -31,7 +31,7 @@ const webpackConfig = {
     rules: [
       ...(config.dev.useEslint ? [{
         test: /\.(js|vue)$/,
-        use: 'eslint-loader',
+        loader: 'eslint-loader',
         include: [utils.parentDir('src'), utils.parentDir('test')],
         options: {
           formatter: require('eslint-friendly-formatter'),
@@ -40,20 +40,20 @@ const webpackConfig = {
       }] : []),
       {
         test: /\.vue$/,
-        use: 'vue-loader',
+        loader: 'vue-loader',
         options: vueLoaderConfig,
         include: [utils.parentDir('src')],
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        loader: 'babel-loader',
         include: [utils.parentDir('src'), utils.parentDir('test')],
         exclude: [utils.parentDir('node_modules')],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         include: [utils.parentDir('src')],
-        use: 'url-loader',
+        loader: 'url-loader',
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:6].[ext]'),
@@ -61,7 +61,7 @@ const webpackConfig = {
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        use: 'url-loader',
+        loader: 'url-loader',
         options: {
           limit: 1000,
           name: utils.assetsPath('media/[name].[hash:6].[ext]'),
@@ -69,7 +69,7 @@ const webpackConfig = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: 'url-loader',
+        loader: 'url-loader',
         query: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:6].[ext]'),
