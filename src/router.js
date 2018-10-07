@@ -1,7 +1,7 @@
-import App from '../App'
+import App from './App'
 
-const home = r => require.ensure([], () => r(require('../page/home/index')), 'home')
-const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
+const home = r => require.ensure([], () => r(require('./pages/home/home')), 'home')
+const login = r => require.ensure([], () => r(require('./pages/login/login')), 'login')
 
 export default [{
   path: '/',
@@ -16,11 +16,11 @@ export default [{
     {
       path: '/home',
       component: home
-    }
-    //登录注册页
+    },
+    // signinUP-page
     {
-        path: '/login',
-        component: login
+      path: '/login',
+      component: login
     },
   ]
 }]

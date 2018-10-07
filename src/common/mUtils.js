@@ -98,7 +98,7 @@ export const showBack = callback => {
     moveEnd()
   }, { passive: true })
 
-  cosnt moveEnd = () => {
+  const moveEnd = () => {
     requestFram = requestAnimationFrame(() => {
       if (document.body.scrollTop !== oldScrollTop) {
         oldScrollTop = document.body.scrollTop
@@ -110,7 +110,7 @@ export const showBack = callback => {
     })
   }
 
-  const showBackFunc = () => {
+  const showBackFun = () => {
     if (document.body.scrollTop > 500) {
       callback(true)
     } else {
@@ -161,7 +161,7 @@ export const animate = (element, target, duration = 400, mode = 'ease-out', call
 
   // get target attribute unit and initial style
   Object.keys(target).forEach(attr => {
-    if (/[^\d^\.]+/gi.test(target[attr])) {
+    if (/[^\d^.]+/gi.test(target[attr])) {
       unit[attr] = target[attr].match(/[^\d.]+/gi)[0] || 'px'
     } else {
       unit[attr] = 'px'
@@ -197,9 +197,9 @@ export const animate = (element, target, duration = 400, mode = 'ease-out', call
           intervalTime = duration * 20 / 400
           break
         case 'ease-in':
-          let oldspeed = remberSpeed[attr] || 0
+          let oldSpeed = remberSpeed[attr] || 0
           iSpeed = oldSpeed + (target[attr] - initState[attr]) / duration
-          rememberSpeed[attr] = iSpeed
+          remberSpeed[attr] = iSpeed
           break
         default:
           speedBase = iCurrent
@@ -213,8 +213,7 @@ export const animate = (element, target, duration = 400, mode = 'ease-out', call
       switch (mode) {
         case 'ease-out':
           status = iCurrent !== target[attr]
-
-          break;
+          break
         case 'linear':
           status = Math.abs(Math.abs(iCurrent) - Math.abs(target[attr])) > Math.abs(iSpeed)
           break

@@ -1,10 +1,10 @@
-import 'config/rem'
+import 'common/rem'
 import Vue from 'vue'
 import routes from 'router'
 import store from 'store/store'
-import FastClick from 'fastlick'
+import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
-import { routerMode } from 'config/env'
+import { routerMode } from 'common/env'
 
 if ('addEventListener' in document) {
   document.addEventListener('DOMContentLoaded', () => {

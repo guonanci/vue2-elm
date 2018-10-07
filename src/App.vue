@@ -19,9 +19,9 @@
   }
 </script>
 
-<style scoped>
-  @import 'style/mixin';
-  @import 'style/common';
+<style lang='scss'>
+  @import 'styles/mixin';
+  @import 'styles/common';
   html {
     scroll-behavior: smooth;
     -webkit-overflow-scolling: touch;

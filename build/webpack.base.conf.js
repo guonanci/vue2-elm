@@ -2,7 +2,6 @@ const config = require('../config')
 const utils = require('./utils')
 const vueLoaderConfig = require('./vue-loader.conf')
 
-
 const webpackConfig = {
   entry: {
     app: './src/main.js',
@@ -23,7 +22,7 @@ const webpackConfig = {
       'common': utils.parentDir('src/common'),
       'router': utils.parentDir('src/router'),
       'enum$': utils.parentDir('src/common/enum'),
-      'components': utils.parentDir('components'),
+      'components': utils.parentDir('src/components'),
       'mUtils$': utils.parentDir('src/common/mUtils'),
     },
   },
