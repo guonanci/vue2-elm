@@ -14,6 +14,7 @@ module.exports = {
     gzip: false,
     gzipExts: ['js', 'css'],
   },
+
   dev: {
     mode: 'development',
     useEslint: true,
