@@ -21,6 +21,7 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
     colors: true,
     chunks: false,
   },
+  quiet: true
 })
 
 var hotMiddleware = require('webpack-hot-middleware')(compiler)
