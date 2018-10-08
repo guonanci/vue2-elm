@@ -20,8 +20,8 @@
 </script>
 
 <style lang='scss'>
-  @import 'styles/mixin';
-  @import 'styles/common';
+  @import 'styles/mixin.scss';
+  @import 'styles/common.scss';
   html {
     scroll-behavior: smooth;
     -webkit-overflow-scolling: touch;

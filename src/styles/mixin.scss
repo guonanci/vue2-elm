@@ -9,7 +9,7 @@ $f5: #f5f5f5;
 // background image url and size
 @mixin bis($url) {
   background-image: url($url);
-  background-repeat: : no-repeat;
+  background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 @mixin borderRadius($radius) {
@@ -37,6 +37,13 @@ $f5: #f5f5f5;
   top: 50%;
   transform: translateY(-50%)
 }
+//定位上下居中
+@mixin cl {
+	position: absolute;
+	left: 50%;
+  transform: translateX(-50%);
+}
+
 // width and height
 @mixin wh($width, $height) {
   width: $width;
