@@ -1,5 +1,5 @@
 /**
- * config switch between build and prod env
+ * config switch between development and production
  *
  * baseUrl
  * routerMode
@@ -11,7 +11,7 @@ let imgBaseUrl = ''
 
 if (process.env.NODE_ENV === 'development') {
   imgBaseUrl = '/img/'
-} else if (process.env.NODE_ENV === 'development') {
+} else if (process.env.NODE_ENV === 'production') {
   baseUrl = '//elm.cangdu.org'
   imgBaseUrl = '//elm.cangdu.org/img/'
 }

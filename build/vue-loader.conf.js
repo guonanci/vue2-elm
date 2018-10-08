@@ -12,12 +12,12 @@ module.exports = {
     extract: isProduction
   }),
   cssSourceMap: sourceMapEnabled,
-  transformToRequire: {
-    video: 'src',
-    source: 'src',
-    img: 'src',
-    image: 'xlink:href'
-  },
+  // transformToRequire: {
+  //   video: 'src',
+  //   source: 'src',
+  //   img: 'src',
+  //   image: 'xlink:href'
+  // },
   postcss: [
     require('autoprefixer')({
       browsers: ['last 10 versions'],

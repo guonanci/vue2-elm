@@ -43,7 +43,7 @@ export default {
 
     setStore('buyCart', state.cartList)
   },
-  [REDUCE_CART] (state, { shopid, category_id, item_id, food_id, name, price, specs }) {
+  [REDUCE_CART] (state, { shopid, category_id, item_id, food_id, name, specs }) {
     const cart = state.cartList
     const shop = (cart[shopid] || {})
     const category = shop[category_id] || {}

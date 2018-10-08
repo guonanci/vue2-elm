@@ -32,7 +32,7 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return MiniCSSExtractPlugin.extract('vue-style-loader', sourceLoader)
     } else {
-      return ['vuex-style-loader', sourceLoader].join('!')
+      return ['vue-style-loader', sourceLoader].join('!')
     }
   }
 
