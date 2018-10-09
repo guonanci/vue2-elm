@@ -8,7 +8,7 @@
     <transition name="router-fade" mode="out-in">
       <router-view v-if="!$route.meta.keepAlive"></router-view>
     </transition>
-    <svg-icon></svg-icon>
+    <svg-icon />
   </div>
 </template>
 
@@ -20,8 +20,8 @@
 </script>
 
 <style lang='scss'>
-  @import 'styles/mixin.scss';
-  @import 'styles/common.scss';
+  @import 'styles/mixin';
+  @import 'styles/common';
   html {
     scroll-behavior: smooth;
     -webkit-overflow-scolling: touch;

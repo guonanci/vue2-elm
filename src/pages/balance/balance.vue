@@ -47,7 +47,6 @@
 </script>
 
 <style scoped lang='scss'>
-
   .page {
     padding-top: 1.95rem;
     p, span {

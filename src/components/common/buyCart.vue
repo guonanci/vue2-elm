@@ -40,7 +40,7 @@
             }
         },
         mounted(){
-            
+
         },
         computed: {
             ...mapState([
@@ -95,13 +95,12 @@
             showReduceTip(){
                 this.$emit('showReduceTip')
             },
-            
+
         },
     }
 </script>
 
 <style lang="scss" scoped>
-    @import '../../style/mixin';
 	.cart_module{
         .add_icon{
             position: relative;
@@ -159,6 +158,6 @@
         opacity: 0;
         transform: scale(.7);
     }
-    
+
 </style>
 

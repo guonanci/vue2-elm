@@ -14,6 +14,7 @@ module.exports = {
     'html'
   ],
   rules: {
+    'standard/no-callback-literal': 0,
     camelcase: 0,
     'comma-dangle': [2, {
       'objects': 'only-multiline',

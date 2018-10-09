@@ -19,18 +19,17 @@
     export default {
     	data(){
             return{
-               
+
             }
         },
         mounted(){
-        	
+
         },
         props:['rating'],
     }
 </script>
 
 <style lang="scss" scoped>
-    @import '../../style/mixin';
 	.rating_container{
         position: relative;
         top: .2rem;

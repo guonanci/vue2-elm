@@ -31,7 +31,6 @@
 </script>
 
 <style lang='scss' scoped>
-    @import '../../styles/mixin';
     @keyframes tipMove{
        0%   { transform: scale(1) }
        35%  { transform: scale(.8) }
@@ -53,7 +52,7 @@
         margin-top: -6rem;
         margin-left: -6rem;
         width: 12rem;
-        animation: tipMove .4s ;
+        animation: tipMove .4s;
         background-color: rgba(255,255,255,1);
         border: 1px;
         padding-top: .6rem;

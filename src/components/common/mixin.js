@@ -1,13 +1,19 @@
 import { getStyle } from 'common/mUtils'
-import { imgBaseUrl } from 'common/env'
 
 export const loadMore = {
   directives: {
     'load-more': {
       bind: (el, binding) => {
         const windowHeight = window.height
-        let height, setTop, paddingBottom, marginBottom, requestFram, oldScrollTop, scrollEl, heightEl, scrollType =
-        el.attributes.type && el.attributes.type.value, scrollReduce = 2
+        let height
+        let setTop
+        let paddingBottom
+        let marginBottom
+        let requestFram
+        let oldScrollTop
+        let scrollEl
+        let heightEl
+        let scrollType = el.attributes.type && el.attributes.type.value
         if (scrollType === 2) {
           scrollEl = el
           heightEl = document.body
@@ -17,7 +23,7 @@ export const loadMore = {
         el.addEventListener('touchstart', () => {
           height = heightEl.clientHeight
           if (scrollType === 2) {
-            height = height
+            // height = height
           }
           setTop = el.offsetTop
           paddingBottom = getStyle(el, 'paddingBottom')
