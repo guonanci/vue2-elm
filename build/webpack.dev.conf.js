@@ -43,7 +43,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      favicon: 'favicon.ico',
+      // favicon: 'favicon.ico',
       inject: true
     })
   ],
@@ -55,13 +55,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
-  console.log(portfinder.basePort)
+  // console.log(portfinder.basePort)
   portfinder.getPort((err, port) => {
     if (err) {
-      console.log(err)
+      // console.log(err)
       reject(err)
     } else {
-      console.log(port)
+      // console.log(port)
       // publish the new Port, necessary for e2e tests
       process.env.PORT = port
       // add port to devServer config
@@ -72,14 +72,12 @@ module.exports = new Promise((resolve, reject) => {
         compilationSuccessInfo: {
           messages: [`Your application is running here: http://${config.dev.host}:${port}`],
         },
-        onErrors: config.dev.notifyOnErrors
-        ? utils.createNotifierCallback()
-        : undefined
+        onErrors: config.dev.notifyOnErrors ? utils.createNotifierCallback() : undefined
       }))
-      console.log(port)
+      // console.log(port)
 
       resolve(devWebpackConfig)
-      console.log(port)
+      // console.log(port)
     }
   })
 })

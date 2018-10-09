@@ -38,7 +38,7 @@ export const OUT_LOGIN = 'OUT_LOGIN'
 
 export const RESET_NAME = 'RESET_NAME'
 
-export const SAVE_AVADAR = 'SAVE_AVADAR'
+export const SAVE_AVATAR = 'SAVE_AVATAR'
 
 export const SAVE_ADDDETAIL = 'SAVE_ADDDETAIL'
 

@@ -35,7 +35,7 @@
       ...mapState(['userInfo'])
     },
     methods: {
-      ...mapActioins(['getUserInfo'])
+      ...mapActions(['getUserInfo'])
     }
   }
 </script>

@@ -26,6 +26,7 @@ module.exports = {
     mode: 'development',
     useEslint: true,
     showEslintErrorsInOverlay: false,
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 7777,
     assetsSubDir: 'static',
     assetsPublicPath: '/',
