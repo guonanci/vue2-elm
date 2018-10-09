@@ -16,10 +16,17 @@ module.exports = {
   },
 
   dev: {
+    // If you have problems debugging vue-files in devtools,
+    // set this to false - it *may* help
+    // https://vue-loader.vuejs.org/en/options.html#cachebusting
+    cacheBusting: true,
+    autoOpenBrowser: true,
+    errorOverlay: true,
+    notifyOnErrors: true,
     mode: 'development',
     useEslint: true,
     showEslintErrorsInOverlay: false,
-    port: 8000,
+    port: 7777,
     assetsSubDir: 'static',
     assetsPublicPath: '/',
     context: [ // proxy path

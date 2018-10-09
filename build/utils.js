@@ -1,52 +1,16 @@
-var path = require('path')
-var config = require('../config')
-var MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
+const config = require('../config')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 
 exports.parentDir = function (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 exports.assetsPath = function (pathArg) {
-  var assetsSubDir = process.env.NODE_NEV === 'production' ? config.build.assetsSubDir : config.dev.assetsSubDir
+  const assetsSubDir = process.env.NODE_NEV === 'production' ? config.build.assetsSubDir : config.dev.assetsSubDir
   return path.posix.join(assetsSubDir, pathArg)
 }
 
-// exports.cssLoaders = function (options) {
-//   options = options || {}
-
-//   // generate loader string to be used with mini css extract plugin
-//   function generateLoaders (loaders) {
-//     var sourceLoader = loaders.map(function (loader) {
-//       var extraParamChar
-//       if (/\?/.test(loader)) {
-//         loader = loader.replace(/\?/, '-loader?')
-//         extraParamChar = '&'
-//       } else {
-//         loader = loader + '-loader'
-//         extraParamChar = '?'
-//       }
-//       return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
-//     }).join('!')
-
-//     // (which is the case during production build)
-//     if (options.extract) {
-//       return MiniCSSExtractPlugin.extract('vue-style-loader', sourceLoader)
-//     } else {
-//       return ['vue-style-loader', sourceLoader].join('!')
-//     }
-//   }
-
-//   // http://vuejs.github.io/vue-laoder/en/configuration/extract-css.html
-//   return {
-//     css: generateLoaders(['css']),
-//     postcss: generateLoaders(['css']),
-//     less: generateLoaders(['css', 'less']),
-//     sass: generateLoaders(['css', 'sass?indentedSyntax']),
-//     scss: generateLoaders(['css', 'sass']),
-//     stylus: generateLoaders(['css', 'stylus']),
-//     styl: generateLoaders(['css', 'stylus']),
-//   }
-// }
 exports.cssLoaders = function (options) {
   options = options || {}
 
@@ -57,7 +21,7 @@ exports.cssLoaders = function (options) {
     }
   }
 
-  var postcssLoader = {
+  const postcssLoader = {
     loader: 'postcss-loader',
     options: {
       sourceMap: options.sourceMap
@@ -67,10 +31,26 @@ exports.cssLoaders = function (options) {
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
-    if (loader) {
+    if (loader && loader !== 'scss') {
       loaders.push({
         loader: loader + '-loader',
         options: Object.assign({}, loaderOptions, {
+          sourceMap: options.sourceMap
+        })
+      })
+    }
+    if (loader === 'scss') {
+      loaders.push({
+        loader: 'sass' + '-loader',
+        options: Object.assign({}, loaderOptions, {
+          sourceMap: options.sourceMap
+        })
+      })
+      loaders.push({
+        loader: 'sass-resources' + '-loader',
+        options: Object.assign({}, {
+          resources: [path.resolve(__dirname, '../src/styles/mixin.scss'), path.resolve(__dirname, '../src/styles/common.scss')]
+        }, {
           sourceMap: options.sourceMap
         })
       })
@@ -97,7 +77,7 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    scss: generateLoaders('scss'),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
@@ -105,14 +85,33 @@ exports.cssLoaders = function (options) {
 
 // Generate laoders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {
-  var output = []
-  var loaders = exports.cssLoaders(options)
-  for (var extension in loaders) {
-    var loader = loaders[extension]
+  const output = []
+  const loaders = exports.cssLoaders(options)
+  for (let extension in loaders) {
+    const loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
       use: loader,
     })
   }
   return output
+}
+
+exports.createNotifierCallback = function () {
+  const notifier = require('node-notifier')
+
+  return (severity, errors) => {
+    if (severity !== 'error') {
+      return
+    }
+    const error = errors[0]
+
+    const filename = error.file && error.file.split('!').pop()
+    notifier.notify({
+      title: pkg.name,
+      message: severity + ': ' + error.name,
+      subtitle: filename || '',
+      icon: path.join(__dirname, 'logo.png')
+    })
+  }
 }

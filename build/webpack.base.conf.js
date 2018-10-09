@@ -1,5 +1,6 @@
 const config = require('../config')
 const utils = require('./utils')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 const webpackConfig = {
@@ -26,6 +27,9 @@ const webpackConfig = {
       'mUtils$': utils.parentDir('src/common/mUtils'),
     },
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
   module: {
     rules: [
       ...(config.dev.useEslint ? [{
