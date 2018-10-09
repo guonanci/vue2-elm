@@ -1,10 +1,7 @@
 const path = require('path')
 const config = require('../config')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-
-exports.parentDir = function (dir) {
-  return path.join(__dirname, '..', dir)
-}
+const pkg = require('../package.json')
 
 exports.assetsPath = function (pathArg) {
   const assetsSubDir = process.env.NODE_NEV === 'production' ? config.build.assetsSubDir : config.dev.assetsSubDir

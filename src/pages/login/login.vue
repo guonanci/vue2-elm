@@ -186,8 +186,6 @@
 </script>
 
 <style lang="scss" scoped>
-
-    @import '../../style/mixin';
     .loginContainer{
         padding-top: 1.95rem;
         p, span, input{

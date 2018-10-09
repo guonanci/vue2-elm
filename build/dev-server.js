@@ -1,30 +1,37 @@
+require('./check-versions')()
+
 var config = require('../config')
 if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
+
+var opn = require('opn')
 var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
-var opn = require('opn')
 var proxyMiddleware = require('http-proxy-middleware')
-var webpackConfig = require('./webpack.dev.conf')
+var webpackConfig = process.env.NODE_ENV === 'testing'
+  ? require('./webpack.prod.conf')
+  : require('./webpack.dev.conf')
 
 // default port where app listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
+var autoOpenBrowser = !!config.dev.autoOpenBrowser
+// Define HTTP proxies to your custom API backend
+// https://github.com/chimurai/http-proxy-middleware
+var proxyTable = config.dev.proxyTable
 
 var app = express()
 var compiler = webpack(webpackConfig)
-
+console.log(webpackConfig)
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
-  publicPath: webpackConfig.output.publicPath,
-  stats: {
-    colors: true,
-    chunks: false,
-  },
+  publicPath: webpackConfig.output && webpackConfig.output.publicPath,
   quiet: true
 })
 
-var hotMiddleware = require('webpack-hot-middleware')(compiler)
+var hotMiddleware = require('webpack-hot-middleware')(compiler, {
+  log: () => {}
+})
 // force page reload when html-webpack-plugin template changes
 
 compiler.plugin('compilation', function (compilation) {
@@ -67,7 +74,7 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 // app pure static assets
-var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDir)
+const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDir)
 app.use(staticPath, express.static('./static'))
 
 module.exports = app.listen(port, function (err) {
@@ -75,7 +82,7 @@ module.exports = app.listen(port, function (err) {
     console.log(err)
     return
   }
-  var uri = 'http://localhost:' + port
+  const uri = 'http://localhost:' + port
   console.info('Listening at ' + uri + '\n')
 
   // when env is tesing, dont need open it

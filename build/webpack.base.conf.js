@@ -1,41 +1,50 @@
-const config = require('../config')
+'use strict'
+const path = require('path')
 const utils = require('./utils')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+// const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
-const webpackConfig = {
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
+module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js',
   },
   output: {
     path: config.build.assetsRoot,
+    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    filename: '[name].js',
   },
   resolve: {
-    symlinks: false,
-    extensions: ['.js', '.vue', '.scss'],
+    extensions: ['.js', '.vue', '.scss', '.json'],
     alias: {
-      '@': utils.parentDir('src'),
+      '@': resolve('src'),
       'vue$': 'vue/dist/vue.esm.js',
-      'assets': utils.parentDir('assets'),
-      'store': utils.parentDir('src/store'),
-      'pages': utils.parentDir('src/pages'),
-      'styles': utils.parentDir('src/styles'),
-      'common': utils.parentDir('src/common'),
-      'router': utils.parentDir('src/router'),
-      'enum$': utils.parentDir('src/common/enum'),
-      'components': utils.parentDir('src/components'),
-      'mUtils$': utils.parentDir('src/common/mUtils'),
+      'assets': resolve('assets'),
+      'store': resolve('src/store'),
+      'pages': resolve('src/pages'),
+      'styles': resolve('src/styles'),
+      'common': resolve('src/common'),
+      'router': resolve('src/router'),
+      'enum$': resolve('src/common/enum'),
+      'components': resolve('src/components'),
+      'mUtils$': resolve('src/common/mUtils'),
     },
   },
   plugins: [
-    new VueLoaderPlugin()
+    // new VueLoaderPlugin()
   ],
   module: {
     rules: [
       ...(config.dev.useEslint ? [{
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
-        include: [utils.parentDir('src'), utils.parentDir('test')],
+        enforce: 'pre',
+        include: [resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter'),
           emitWarning: !config.dev.showEslintErrorsInOverlay,
@@ -45,17 +54,17 @@ const webpackConfig = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig,
-        include: [utils.parentDir('src')],
+        include: [resolve('src')],
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [utils.parentDir('src'), utils.parentDir('test')],
-        exclude: [utils.parentDir('node_modules')],
+        include: [resolve('src'), resolve('test')],
+        exclude: [resolve('node_modules')],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        include: [utils.parentDir('src')],
+        include: [resolve('src')],
         loader: 'url-loader',
         options: {
           limit: 10000,
@@ -73,7 +82,7 @@ const webpackConfig = {
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
-        query: {
+        options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:6].[ext]'),
         },
@@ -82,4 +91,4 @@ const webpackConfig = {
   },
 }
 
-module.exports = webpackConfig
+

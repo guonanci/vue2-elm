@@ -35,7 +35,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     }
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': require('../config/dev.env')
+    }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
@@ -51,10 +55,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
+  console.log(portfinder.basePort)
   portfinder.getPort((err, port) => {
     if (err) {
+      console.log(err)
       reject(err)
     } else {
+      console.log(port)
       // publish the new Port, necessary for e2e tests
       process.env.PORT = port
       // add port to devServer config
@@ -66,11 +73,13 @@ module.exports = new Promise((resolve, reject) => {
           messages: [`Your application is running here: http://${config.dev.host}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
-          ? utils.createNotifierCallback()
-          : undefined
+        ? utils.createNotifierCallback()
+        : undefined
       }))
+      console.log(port)
 
       resolve(devWebpackConfig)
+      console.log(port)
     }
   })
 })
