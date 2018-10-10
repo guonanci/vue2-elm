@@ -55,7 +55,48 @@ html, body {
 .clear {
   zoom: 1;
 }
-.back-img {
+.back_img {
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+.margin{
+    margin: 0 auto;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.paddingTop{
+    padding-top: 1.95rem;
+}
+
+@keyframes backOpacity{
+   0%   { opacity: 1 }
+   25%  { opacity: .5 }
+   50%  { opacity: 1 }
+   75%  { opacity: .5 }
+   100% { opacity: 1 }
+}
+
+.animation_opactiy{
+    animation: backOpacity 2s ease-in-out infinite;
 }

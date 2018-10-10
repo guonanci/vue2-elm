@@ -11,7 +11,7 @@ module.exports = {
     errorOverlay: true,
     notifyOnErrors: true,
     mode: 'development',
-    useEslint: true,
+    useEslint: false,
     showEslintErrorsInOverlay: false,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
     host: 'localhost', // can be overwritten by process.env.HOST

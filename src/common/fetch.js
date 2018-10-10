@@ -29,7 +29,7 @@ export default async (url = '', data = {}, method = 'GET', way = 'fetch') => {
     }
 
     if (method === 'POST') {
-      Object.defindProperty(requestConfig, 'body', {
+      Object.defineProperty(requestConfig, 'body', {
         value: JSON.stringify(data)
       })
     }

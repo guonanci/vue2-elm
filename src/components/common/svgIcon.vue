@@ -117,11 +117,9 @@
 </template>
 
 <script>
-
-  	export default {
-
-  	}
-
+export default {
+  name: 'svg-icon'
+}
 </script>
 
 <style lang="scss">

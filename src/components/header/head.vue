@@ -1,8 +1,8 @@
 <template>
-  <header id="head-top">
+  <header class="head-top">
     <slot name='logo'></slot>
     <slot name='search'></slot>
-    <section class='back' v-if='back' @click='$router.go(-1)'>
+    <section class='back' v-if='goBack' @click='$router.go(-1)'>
       <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' version='1.1'>
         <polyline points='12, 18 4,9 12,0' style='fill:none;stroke:rgb(255,255,255);stroke-width:2' />
       </svg>
@@ -14,8 +14,8 @@
       </svg>
       <span class='login-span' v-else>登录|注册</span>
     </router-link>
-    <section class='title ellipsis' v-if='title'>
-      <span class='title-text'>{{title}}</span>
+    <section class='title ellipsis' v-if='headTitle'>
+      <span class='title-text'>{{headTitle}}</span>
     </section>
     <slot name='edit'></slot>
     <slot name='msite-title'></slot>
@@ -30,7 +30,7 @@
     mounted () {
       this.getUserInfo()
     },
-    props: ['signinUp', 'title', 'back'],
+    props: ['signinUp', 'headTitle', 'goBack'],
     computed: {
       ...mapState(['userInfo'])
     },
@@ -41,7 +41,7 @@
 </script>
 
 <style lang='scss' scoped>
-  #head-top {
+  .head-top {
     background-color: $blue;
     position: fixed;
     z-index: 100;
