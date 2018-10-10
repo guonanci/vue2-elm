@@ -175,7 +175,7 @@
 .router-slid-enter-active, .router-slid-leave-active {
     transition: all .4s;
 }
-.router-slid-enter, .router-slid-leave-active {
+.router-slid-enter, .router-slid-leave-to {
     transform: translate3d(2rem, 0, 0);
     opacity: 0;
 }
