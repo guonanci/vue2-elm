@@ -1,7 +1,7 @@
 <template>
   	<div>
         <head-top signin-up='home'>
-            <span slot='logo' class="head_logo"  @click="reload">ele.me</span>
+            <span slot='logo' class='head_logo'  @click="reload">ele.me</span>
         </head-top>
         <nav class="city_nav">
             <div class="city_tip">
@@ -42,14 +42,14 @@
 </template>
 
 <script>
-import headTop from "components/header/head"
-import { cityGuess, hotcity, groupcity } from "common/requests"
+import headTop from 'components/header/head'
+import { cityGuess, hotcity, groupcity } from 'common/requests'
 
 export default {
   data () {
     return {
-      guessCity: "", // 当前城市
-      guessCityid: "", // 当前城市id
+      guessCity: '', // 当前城市
+      guessCityid: '', // 当前城市id
       hotcity: [], // 热门城市列表
       groupcity: {} // 所有城市列表
     }
@@ -83,9 +83,7 @@ export default {
       let sortobj = {}
       for (let i = 65; i <= 90; i++) {
         if (this.groupcity[String.fromCharCode(i)]) {
-          sortobj[String.fromCharCode(i)] = this.groupcity[
-            String.fromCharCode(i)
-          ]
+          sortobj[String.fromCharCode(i)] = this.groupcity[String.fromCharCode(i)]
         }
       }
       return sortobj
@@ -101,7 +99,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 .head_logo {
   left: 0.4rem;
   font-weight: 400;
@@ -167,7 +165,7 @@ export default {
   text-indent: 0.45rem;
   border-top: 2px solid $bc;
   border-bottom: 1px solid $bc;
-  @include font(0.55rem, 1.45rem, "Helvetica Neue");
+  @include font(0.55rem, 1.45rem, 'Helvetica Neue');
   span {
     @include sc(0.475rem, #999);
   }

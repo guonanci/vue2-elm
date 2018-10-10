@@ -1,19 +1,6 @@
 const path = require('path')
 
 module.exports = {
-  build: {
-    mode: '"production"',
-    index: path.resolve(__dirname, '../elm/index.html'),
-    assetsRoot: path.resolve(__dirname, '../elm'),
-    assetsSubDir: 'static',
-    assetsPublicPath: '/elm/',
-    sourceMap: true,
-    // Surge or Netlify already gzip all static assets for you.
-    // Before setting to `true`, make sure to:
-    // npm install --save-dev compression-webpack-plugin
-    gzip: false,
-    gzipExts: ['js', 'css'],
-  },
 
   dev: {
     // If you have problems debugging vue-files in devtools,
@@ -26,10 +13,85 @@ module.exports = {
     mode: 'development',
     useEslint: true,
     showEslintErrorsInOverlay: false,
+    poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 7777,
     assetsSubDir: 'static',
     assetsPublicPath: '/',
+    proxyTable: {
+      '/shopping': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/shopping': '/shopping' }
+      },
+      '/ugc': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/ugc': '/ugc' }
+      },
+      '/v1': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/v1': '/v1' }
+      },
+      '/v2': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/v2': '/v2' }
+      },
+      '/v3': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/v3': '/v3' }
+      },
+      '/v4': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/v4': '/v4' }
+      },
+      '/bos': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/bos': '/bos' }
+      },
+      '/member': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/member': '/member' }
+      },
+      '/promotion': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/promotion': '/promotion' }
+      },
+      '/eus': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/eus': '/eus' }
+      },
+      '/payapi': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/payapi': '/payapi' }
+      },
+      '/img': {
+        'target': 'http://elm.cangdu.org', // 范伟杰
+        // 'target': 'https://ccc.xinyan.com', // 生产
+        'changeOrigin': true,
+        'pathRewrite': { '^/img': '/img' }
+      },
+    },
     context: [ // proxy path
       '/shopping',
       '/ugc',
@@ -51,5 +113,19 @@ module.exports = {
     // In our experiences, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false,
+  },
+
+  build: {
+    mode: '"production"',
+    index: path.resolve(__dirname, '../elm/index.html'),
+    assetsRoot: path.resolve(__dirname, '../elm'),
+    assetsSubDir: 'static',
+    assetsPublicPath: '/elm/',
+    sourceMap: true,
+    // Surge or Netlify already gzip all static assets for you.
+    // Before setting to `true`, make sure to:
+    // npm install --save-dev compression-webpack-plugin
+    gzip: false,
+    gzipExts: ['js', 'css'],
   },
 }
