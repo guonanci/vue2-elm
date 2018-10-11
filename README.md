@@ -14,7 +14,7 @@
 本项目不涉及任何实质性商业活动，大家如果想要中午点外卖的话请前往正版饿了么！
 
 ## 技术栈
-vue2 + vuex + vue-router + webpack4 + es8，9 + fetch + sass + flex, grid + svg
+vue2 + vuex + vue-router + webpack4 + es6，7 + fetch + sass + flex, grid + svg
 
 ## 项目运行
 ### 注意： 由于涉及到大量的ES6、ES7新特性，node 需要 6.0 以上版本

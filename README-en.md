@@ -15,7 +15,7 @@ Currently, this project is doing some performance optimization, and will so add 
 The project does not involve any commercial activity, so if you want to have a takeaway, please go to elm channel in taobao app~
 
 ## Tech Stack
-vue2 + vuex + vue-router + webpack4 + es8, 9 + fetch + sass + flex, grid + svg
+vue2 + vuex + vue-router + webpack4 + es6, 7 + fetch + sass + flex, grid + svg
 
 ## Run Project
 ### References: we need Node 6+ to support ES6, 7
