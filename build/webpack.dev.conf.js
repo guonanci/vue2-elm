@@ -10,7 +10,7 @@ const portfinder = require('portfinder')
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: false })
   },
   // cheap-module-eval-source-map is faster for development
 

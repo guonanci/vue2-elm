@@ -4,7 +4,7 @@ export const loadMore = {
   directives: {
     'load-more': {
       bind: (el, binding) => {
-        const windowHeight = window.height
+        const windowHeight = window.screen.height
         let height
         let setTop
         let paddingBottom
@@ -14,9 +14,12 @@ export const loadMore = {
         let scrollEl
         let heightEl
         let scrollType = el.attributes.type && el.attributes.type.value
+        let scrollReduce = 2
         if (scrollType === 2) {
           scrollEl = el
-          heightEl = document.body
+          heightEl = el.children[0]
+        } else {
+          scrollEl = document.body
           heightEl = el
         }
 
@@ -28,10 +31,6 @@ export const loadMore = {
           setTop = el.offsetTop
           paddingBottom = getStyle(el, 'paddingBottom')
           marginBottom = getStyle(el, 'marginBottom')
-        }, false)
-
-        el.addEventListener('touchmove', () => {
-          loadMore()
         }, false)
 
         el.addEventListener('touchmove', () => {
@@ -57,7 +56,7 @@ export const loadMore = {
         }
 
         const loadMore = () => {
-          if (scrollEl.scrollTop + windowHeight >= height + setTop + paddingBottom + marginBottom) {
+          if (scrollEl.scrollTop + windowHeight >= height + setTop + paddingBottom + marginBottom - scrollReduce) {
             binding.value()
           }
         }
@@ -73,7 +72,7 @@ export const getImgPath = {
       if (!path) {
         return '//elm.cangdu.org/img/default.jpg'
       }
-      if (!path.indexOf('jpeg') !== -1) {
+      if (path.indexOf('jpeg') !== -1) {
         suffix = '.jpeg'
       } else {
         suffix = '.png'

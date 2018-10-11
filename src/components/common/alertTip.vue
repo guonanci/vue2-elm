@@ -1,6 +1,6 @@
 <template>
-  <div class='alert-containerf'>
-    <section class="tip-text-conatainer">
+  <div class='alert-container'>
+    <section class="tip-text-container">
       <div class="tip-icon">
         <span></span><span></span>
       </div>

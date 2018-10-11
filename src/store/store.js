@@ -9,7 +9,7 @@ Vue.use(Vuex)
 const state = {
   latitude: '',
   longtitude: '',
-  catdList: {},
+  cartList: {},
   shopDetail: null,
   userInfo: null,
   shopid: null,

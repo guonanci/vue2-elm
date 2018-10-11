@@ -270,7 +270,7 @@
             margin-top:0;
             padding:.3rem .4rem;
             .headportrait-div{
-                @include fj(left)
+                @include fj(left);
                 p{
                     text-align:left;
                     line-height:1.39rem;

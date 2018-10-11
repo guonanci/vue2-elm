@@ -49,7 +49,7 @@
         props:[],
         methods: {
             ...mapMutations([
-                'RETSET_NAME'
+                'RESET_NAME'
             ]),
             inputThing(){
                 if(this.inputValue.length <5 || this.inputValue.length>24){
@@ -69,7 +69,7 @@
                 if (!checkResult) {
                   return;
                 }
-                this.RETSET_NAME(this.inputValue);
+                this.RESET_NAME(this.inputValue);
                 this.$router.go(-1);
             }
         }

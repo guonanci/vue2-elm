@@ -16,7 +16,7 @@
 <script>
     import headTop from 'components/header/head'
     import { mapState, mapMutations } from 'vuex'
-    import {payRequest} from 'service/getData'
+    import {payRequest} from 'common/requests'
     import alertTip from 'components/common/alertTip'
     import loading from 'components/common/loading'
 

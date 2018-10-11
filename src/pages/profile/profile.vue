@@ -178,14 +178,14 @@ export default {
             }else{
                 path = this.getImgPath(this.avatar)
             }
-            this.SAVE_AVANDER(path);
+            this.SAVE_AVATAR(path);
             return path;
         }
     },
 
     methods:{
         ...mapMutations([
-            'SAVE_AVANDER'
+            'SAVE_AVATAR'
         ]),
         initData(){
             if (this.userInfo && this.userInfo.user_id) {

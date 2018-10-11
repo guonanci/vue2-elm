@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import headTop from 'components/header'
+  import headTop from 'components/header/head'
   import alertTip from 'components/common/alertTip'
   export default {
     data () {

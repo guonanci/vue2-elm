@@ -63,7 +63,7 @@
     			standbytele:'', //备用手机号提示
     			standbytelenum:'', //备用手机号
     			addSearch:false, //添加搜索地址
-    			newAddress:{},			//增加数组的元素
+    			// newAddress:{},			//增加数组的元素
                 showAlert: false, //弹出框
                 alertText: null, //弹出信息
             }

@@ -15,7 +15,7 @@
         </section>
         <section class="poisearch-container" v-show="adressList">
         	<ul>
-        		<li v-for="(item, index) in adressList" @click="listClick(index)">
+        		<li :key='index' v-for="(item, index) in adressList" @click="listClick(index)">
         			<p>{{item.name}}</p>
         			<p>{{item.address}}</p>
         		</li>

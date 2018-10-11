@@ -20,8 +20,9 @@
 </script>
 
 <style lang='scss'>
-  @import 'styles/mixin';
-  @import 'styles/common';
+  // @import 'styles/mixin';
+  // @import 'styles/common';
+  @import 'styles/swiper.min.css';
   html {
     scroll-behavior: smooth;
     -webkit-overflow-scolling: touch;
